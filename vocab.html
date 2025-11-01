@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Vocabulary Table (Full Row Readout)</title>
+    <title>Interactive Vocabulary Table (Usage Focused)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
@@ -24,6 +24,7 @@
             border: 1px solid #ddd;
             padding: 12px 15px;
             text-align: left;
+            vertical-align: top; /* Ensure content aligns at the top */
         }
         th {
             background-color: #007bff;
@@ -35,7 +36,7 @@
         }
         .read-row-icon {
             cursor: pointer;
-            color: #28a745; /* Green for the main action */
+            color: #28a745; 
             margin-left: 5px;
             font-size: 1.2em;
             transition: color 0.2s;
@@ -49,15 +50,15 @@
     </style>
 </head>
 <body>
-    <h1>Vocabulary List (Click Icon to Read Row)</h1>
+    <a href="index.html" style="text-decoration: none; color: #007bff; margin-bottom: 20px; display: inline-block;">&larr; Back to Story</a>
+    <h1>Story Vocabulary</h1>
     
     <table>
         <thead>
             <tr>
                 <th>English Word</th>
-                <th>Part of Speech</th>
                 <th>Chinese Translation</th>
-                <th>Pinyin</th>
+                <th>Example</th>
                 <th>Explanation</th>
             </tr>
         </thead>
@@ -67,15 +68,14 @@
                 <td>
                     <span id="eng-0" class="word-text">Boisterous</span>
                     <i class="fas fa-volume-up read-row-icon" 
-                       onclick="speakRow('eng-0', 'zh-0', 'nuance-0')"
+                       onclick="speakRow('eng-0', 'zh-0', 'ex-0', 'nuance-0')"
                        title="Click to read the whole row"></i>
                 </td>
-                <td>Adjective</td>
                 <td>
                     <span id="zh-0">喧闹的 / 活泼的</span>
                     <br><small>(xuānnào de / huópō de)</small>
                 </td>
-                <td>xuānnào de / huópō de</td>
+                <td id="ex-0">The **boisterous** crowd celebrated the victory with loud cheers.</td>
                 <td><span id="nuance-0">Emphasizes noisy and lively energy. 喧闹的 is often used for loud activity.</span></td>
             </tr>
 
@@ -83,15 +83,14 @@
                 <td>
                     <span id="eng-1" class="word-text">Gravitas</span>
                     <i class="fas fa-volume-up read-row-icon" 
-                       onclick="speakRow('eng-1', 'zh-1', 'nuance-1')"
+                       onclick="speakRow('eng-1', 'zh-1', 'ex-1', 'nuance-1')"
                        title="Click to read the whole row"></i>
                 </td>
-                <td>Noun</td>
                 <td>
                     <span id="zh-1">庄严 / 庄重感</span>
                     <br><small>(zhuāngyán / zhuāngzhòng gǎn)</small>
                 </td>
-                <td>zhuāngyán / zhuāngzhòng gǎn</td>
+                <td id="ex-1">The judge delivered the sentence with appropriate **gravitas** and seriousness.</td>
                 <td><span id="nuance-1">Refers to serious, dignified importance or weightiness.</span></td>
             </tr>
 
@@ -99,31 +98,29 @@
                 <td>
                     <span id="eng-2" class="word-text">Mired</span>
                     <i class="fas fa-volume-up read-row-icon" 
-                       onclick="speakRow('eng-2', 'zh-2', 'nuance-2')"
+                       onclick="speakRow('eng-2', 'zh-2', 'ex-2', 'nuance-2')"
                        title="Click to read the whole row"></i>
                 </td>
-                <td>Adjective</td>
                 <td>
                     <span id="zh-2">陷入困境的 / 泥泞的</span>
                     <br><small>(xiànrù kùnjìng de / níníng de)</small>
                 </td>
-                <td>xiànrù kùnjìng de / níníng de</td>
-                <td><span id="nuance-2">Literally means stuck in mud (泥泞的), but often used figuratively as stuck in a difficult situation (陷入困境的).</span></td>
+                <td id="ex-2">The project became **mired** in bureaucratic red tape and delays.</td>
+                <td><span id="nuance-2">Literally means stuck in mud, but often used figuratively as stuck in a difficult situation (陷入困境的).</span></td>
             </tr>
 
             <tr id="row-3">
                 <td>
                     <span id="eng-3" class="word-text">Pall</span>
                     <i class="fas fa-volume-up read-row-icon" 
-                       onclick="speakRow('eng-3', 'zh-3', 'nuance-3')"
+                       onclick="speakRow('eng-3', 'zh-3', 'ex-3', 'nuance-3')"
                        title="Click to read the whole row"></i>
                 </td>
-                <td>Noun</td>
                 <td>
                     <span id="zh-3">笼罩的阴影 / 阴郁气氛</span>
                     <br><small>(lǒngzhào de yīnyǐng / yīnyù qìfēn)</small>
                 </td>
-                <td>lǒngzhào de yīnyǐng / yīnyù qìfēn</td>
+                <td id="ex-3">A **pall** of silence fell over the town after the sudden storm.</td>
                 <td><span id="nuance-3">The feeling of gloom, sadness, or darkness covering a place or event.</span></td>
             </tr>
 
@@ -131,15 +128,14 @@
                 <td>
                     <span id="eng-4" class="word-text">Perfunctory</span>
                     <i class="fas fa-volume-up read-row-icon" 
-                       onclick="speakRow('eng-4', 'zh-4', 'nuance-4')"
+                       onclick="speakRow('eng-4', 'zh-4', 'ex-4', 'nuance-4')"
                        title="Click to read the whole row"></i>
                 </td>
-                <td>Adjective</td>
                 <td>
                     <span id="zh-4">敷衍的 / 草率的</span>
                     <br><small>(fūyǎn de / cǎoshuài de)</small>
                 </td>
-                <td>fūyǎn de / cǎoshuài de</td>
+                <td id="ex-4">The tour guide gave a **perfunctory** explanation before rushing us to the next stop.</td>
                 <td><span id="nuance-4">Doing something carelessly or out of duty, without real effort or interest.</span></td>
             </tr>
 
@@ -147,15 +143,14 @@
                 <td>
                     <span id="eng-5" class="word-text">Eloquent</span>
                     <i class="fas fa-volume-up read-row-icon" 
-                       onclick="speakRow('eng-5', 'zh-5', 'nuance-5')"
+                       onclick="speakRow('eng-5', 'zh-5', 'ex-5', 'nuance-5')"
                        title="Click to read the whole row"></i>
                 </td>
-                <td>Adjective</td>
                 <td>
                     <span id="zh-5">雄辩的 / 意味深长的</span>
                     <br><small>(xióngbiàn de / yìwèi shēncháng de)</small>
                 </td>
-                <td>xióngbiàn de / yìwèi shēncháng de</td>
+                <td id="ex-5">The painting was an **eloquent** statement on the tragedy of war.</td>
                 <td><span id="nuance-5">Can mean persuasive (雄辩的), but in the story, it means deeply expressive or meaningful (意味深长的).</span></td>
             </tr>
 
@@ -163,15 +158,14 @@
                 <td>
                     <span id="eng-6" class="word-text">Monumental</span>
                     <i class="fas fa-volume-up read-row-icon" 
-                       onclick="speakRow('eng-6', 'zh-6', 'nuance-6')"
+                       onclick="speakRow('eng-6', 'zh-6', 'ex-6', 'nuance-6')"
                        title="Click to read the whole row"></i>
                 </td>
-                <td>Adjective</td>
                 <td>
                     <span id="zh-6">巨大的 / 意义重大的</span>
                     <br><small>(jùdà de / yìyì zhòngdà de)</small>
                 </td>
-                <td>jùdà de / yìyì zhòngdà de</td>
+                <td id="ex-6">Rebuilding the ancient temple was a **monumental** task that took decades.</td>
                 <td><span id="nuance-6">Refers to something massive in size (巨大的) or extremely important (意义重大的).</span></td>
             </tr>
 
@@ -179,15 +173,15 @@
                 <td>
                     <span id="eng-7" class="word-text">Recast</span>
                     <i class="fas fa-volume-up read-row-icon" 
-                       onclick="speakRow('eng-7', 'zh-7', 'nuance-7')"
+                       onclick="speakRow('eng-7', 'zh-7', 'ex-7', 'nuance-7')"
+                       onclick="speakRow('eng-7', 'zh-7', 'ex-7', 'nuance-7')"
                        title="Click to read the whole row"></i>
                 </td>
-                <td>Verb</td>
                 <td>
                     <span id="zh-7">重塑 / 重新表达</span>
                     <br><small>(chóngsù / chóngxīn biǎodá)</small>
                 </td>
-                <td>chóngsù / chóngxīn biǎodá</td>
+                <td id="ex-7">She **recast** her business plan to focus on sustainability rather than just profit.</td>
                 <td><span id="nuance-7">To change the form, structure, or presentation of something.</span></td>
             </tr>
 
@@ -230,7 +224,8 @@
         }
 
         // Main function to read the entire row content
-        function speakRow(engId, zhId, nuanceId) {
+        // UPDATED: Now accepts exId for the Example column
+        function speakRow(engId, zhId, exId, nuanceId) {
             // Cancel any current speaking session
             if (synth.speaking) {
                 synth.cancel();
@@ -240,12 +235,13 @@
 
             const engText = document.getElementById(engId).textContent.trim();
             const zhTextFull = document.getElementById(zhId).textContent.trim();
+            const exampleText = document.getElementById(exId).textContent.trim(); // NEW
             const nuanceText = document.getElementById(nuanceId).textContent.trim();
             
             // 1. English Word
             speakInQueue(engText, 'en-US', 1.0);
             
-            // 2. Chinese Translation (Strip non-Chinese characters for better pronunciation)
+            // 2. Chinese Translation
             const zhTextOnly = zhTextFull.replace(/[^一-鿿]/g, '');
             if (zhTextOnly) {
                 // Add a small pause utterance (silence) before the Chinese
@@ -253,11 +249,18 @@
                 speakInQueue(zhTextOnly, 'zh-CN', 0.85); 
             }
 
-            // 3. Explanation
+            // 3. Example Sentence (NEW STEP)
+            if (exampleText) {
+                // Read a short phrase to introduce the example
+                speakInQueue(" . . . For example: ", 'en-US', 1.0); 
+                speakInQueue(exampleText, 'en-US', 1.0); 
+            }
+
+            // 4. Explanation
             if (nuanceText) {
                 // Add a small pause utterance (silence) before the explanation
-                speakInQueue(". ", 'en-US', 1.0); // A small English "breath"
-                speakInQueue(nuanceText, 'en-US', 0.95); // Slightly slower rate for explanation
+                speakInQueue(". ", 'en-US', 1.0); 
+                speakInQueue(nuanceText, 'en-US', 0.95); 
             }
         }
     </script>
